@@ -117,7 +117,7 @@ class CodingTestScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(width: 130,),
+                SizedBox(width: 170,),
                 MyDropdownMenu(),
               ],
             ),
@@ -145,14 +145,14 @@ class CodingTestScreen extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: Text('Code Submitted'),
-                    content: Text('Your code has been submitted successfully.'),
+                    title: const Text('Code Submitted'),
+                    content: const Text('Your code has been submitted successfully.'),
                     actions: [
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text('OK'),
+                        child: const Text('OK'),
                       ),
                     ],
                   ),
