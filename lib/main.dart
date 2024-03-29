@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,10 +11,9 @@ class CodingTestApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Coding Test App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark(),
       home: const CodingTestScreen(),
     );
   }
@@ -41,10 +42,52 @@ class CodingTestScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const Expanded(
               child: SingleChildScrollView(
-                child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet felis et nisl sagittis ultrices nec sed nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis nec consequat libero. Sed in ipsum non felis pharetra ullamcorper nec nec nisi. Sed vehicula lorem eget vestibulum consequat. Phasellus auctor viverra est, nec suscipit turpis posuere nec. Donec eget nunc et turpis ultricies mattis. Sed vitae scelerisque mi. Suspendisse aliquam congue tortor nec ullamcorper. Nulla facilisi.',
-                  style: TextStyle(fontSize: 16),
+                child: Column(
+                  crossAxisAlignment:CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).',                 
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(height: 5,),
+                    Text(
+              'Example 1:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 3,),
+            Text(
+              'Input: nums1 = [1,3], nums2 = [2]\n'
+              'Output: 2.00000\n'
+              'Explanation: merged array = [1,2,3] and median is 2.',
+              style: TextStyle(
+                fontSize: 16,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 3,),
+                    Text(
+              'Example 2:',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 3,),
+            Text(
+              'Input: nums1 = [1,2], nums2 = [3,4]\n'
+              'Output: 2.50000\n'
+              'Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.',
+              style: TextStyle(
+                fontSize: 18,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
+                  ],
                 ),
+                //adding exaples and outputs///////////////////////////////////////////////////////////
               ),
             ),
             const SizedBox(height: 20),
@@ -97,7 +140,7 @@ class CodingTestScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Text(
-              'Warning: Plagiarism may result in consequences!',
+              'Warning: Submissions with plagiarized code will be disqualified!',
               style: TextStyle(
                 color: Colors.red,
                 fontStyle: FontStyle.italic,
