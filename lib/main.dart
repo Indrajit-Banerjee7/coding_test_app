@@ -1,10 +1,27 @@
 import 'dart:math';
 
+import 'package:codeing_test/dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_code_editor/flutter_code_editor.dart';
+import 'package:flutter_highlight/themes/monokai-sublime.dart';
+ import 'package:highlight/languages/java.dart';
+ import 'package:highlight/languages/dart.dart';
+// import 'package:flutter_highlight/themes/monokai-sublime.dart';
+// import 'package:highlight/languages/java.dart';
+//import '../common/snippets.dart';
 
 void main() {
   runApp(const CodingTestApp());
 }
+
+final controller = CodeController(
+  text: "class Solution {\n"
+  "double findMedianSortedArrays(List<int> nums1, List<int> nums2) {\n"
+  "\n"
+" }\n"
+"}\n",
+  language: dart,
+);
 
 class CodingTestApp extends StatelessWidget {
   const CodingTestApp({super.key});
@@ -91,12 +108,18 @@ class CodingTestScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Your Solution',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            const Row(
+              children: [
+                Text(
+                  'Your Solution',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(width: 130,),
+                MyDropdownMenu(),
+              ],
             ),
             const SizedBox(height: 10),
             Expanded(
@@ -105,15 +128,14 @@ class CodingTestScreen extends StatelessWidget {
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const TextField(
-                  maxLines: null,
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                    hintText: 'Write your code here...',
-                    contentPadding: EdgeInsets.all(10),
-                    border: InputBorder.none,
-                  ),
-                ),
+                  child: CodeTheme(
+          data: CodeThemeData(styles: monokaiSublimeTheme),
+          child: SingleChildScrollView(
+            child: CodeField(
+              controller: controller,
+            ),
+          ),
+        ),
               ),
             ),
             const SizedBox(height: 20),
